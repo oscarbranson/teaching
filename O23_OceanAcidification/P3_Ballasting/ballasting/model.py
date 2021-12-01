@@ -2,12 +2,46 @@ import numpy as np
 import cbsyst as cb
 from tqdm.notebook import tqdm
 
-from .helpers import calc_rho_f, calc_rho_p, calc_Rdiss, calc_Rremin, calc_wsink, sphere_vol_from_radius, sphere_radius_from_vol, day_2_seconds
+from .helpers import calc_rho_f, calc_rho_p, calc_Rdiss, calc_Rremin, calc_wsink, sphere_vol_from_radius, sphere_radius_from_vol, day_2_seconds, calc_O2_sat
 
-def sinking_particles(Fc=0.05, r0=250, k_diss=4.5e-3, p_lifetime=2.5, tmax_days=10, tsteps=800, N=2000, T=5, S=35):
+def sinking_particles(PIC_POC=0.1, r0=250, k_diss=4.5e-3, p_lifetime=2.5, f_solubility=1.5, tmax_days=10, tsteps=800, N=2000, T=15, S=35, TA0=2200, pCO20=350):
+    """
+    Calculate the remineralisation and dissolution of marine aggregates with depth.   
+
+    Parameters
+    ----------
+    PIC_POC : float, optional
+        the g/g ratio of PIC/POC, by default 0.1
+    r0 : int, optional
+        initial particle radius in microns, by default 250
+    k_diss : [type], optional
+        CaCO3 kinetic dissolution constant, by default 4.5e-3
+    p_lifetime : float, optional
+        the average lifetime of an organic particle in days, by default 2.5
+    f_solubility : float, optional
+        the solubility of CaCO3 relative to aragonite - higher is more soluble, by default 1
+    tmax_days : int, optional
+        the number of days to calculate, by default 10
+    tsteps : int, optional
+        the number of time steps, by default 800
+    N : int, optional
+        The number of particles to react per kgSW, by default 2000
+    T : int, optional
+        temperature in celcius, by default 5
+    S : int, optional
+        salinity, by default 35
+    TA0 : int, optional
+        starting Total Alkalinity, by default 2200
+    pCO20 : int, optional
+        atmospheric pCO2, by default 350
+
+    Returns
+    -------
+    dict
+        A model containing a vertical profile of particle and water properties.
+    """
 
     t = np.logspace(-3, np.log10(tmax_days * day_2_seconds), tsteps + 2)
-    log_dt = t[1] - t[0]
     # t = np.linspace(0, tmax_days * day_2_seconds, tsteps + 2)
 
     Ca = 10.2e-3
@@ -35,27 +69,34 @@ def sinking_particles(Fc=0.05, r0=250, k_diss=4.5e-3, p_lifetime=2.5, tmax_days=
     # dissolution parameters
     n_diss = 2.7
 
+    # Calculate volume fractional abundance from PIC:POC
+    mPIC_POC = PIC_POC * (100. / 40) / (MW_org / 12 / n_DIC_org)  # gC / gC to gCarb / gOrg
+    vPIC_POC = mPIC_POC * rho_org / rho_carb  # gCarb / gOrg to m3Carb / m3Org
+    Fc = vPIC_POC / (1 + vPIC_POC)
+    
     # Vmix = 0  # kgSW s-1
 
+    sw = cb.Csys(TA=TA0, pCO2=pCO20, T_in=T, S_in=S)
     init = {
         'z': 0,
         'R_z': 0,
         'r': r0 * 1e-6,
         'P': 0,
-        'DIC': 2050,
-        'TA': 2200,
-        'O2': 200,
+        'DIC': sw.DIC,
+        'TA': sw.TA,
+        'O2': calc_O2_sat(T, S, 1) * 1e3 * 1.0236 / 32,  # mol kg
         'Fc': Fc,
-        'rho_p': calc_rho_p(Fc, rho_org=rho_org, rho_carb=rho_carb)
+        'rho_p': calc_rho_p(Fc, rho_org=rho_org, rho_carb=rho_carb),
+        'PIC_POC': PIC_POC
     }
     Vp = sphere_vol_from_radius(init['r'])
     init['POC'] = n_DIC_org * N * 1e6 * Vp * (1 - init['Fc']) * rho_org * 1000 / MW_org  # umol kg-1
     init['PIC'] = n_DIC_carb * N * 1e6 * Vp * init['Fc'] * rho_carb * 1000 / MW_carb  # umol kg-1
     init['PC'] = init['PIC'] + init['POC']
 
-    sw = cb.Csys(DIC=init['DIC'], TA=init['TA'], T_in=T, S_in=S)
+    
     init['CO3'] = sw.CO3
-    init['Omega'] = Ca * sw.CO3 * 1e-6 / sw.Ks.KspA
+    init['Omega'] = Ca * sw.CO3 * 1e-6 / sw.Ks.KspA / f_solubility
     init['R_diss'] = 0
     init['R_remin'] = 0
 
@@ -98,7 +139,8 @@ def sinking_particles(Fc=0.05, r0=250, k_diss=4.5e-3, p_lifetime=2.5, tmax_days=
         m['POC'][i] = n_DIC_org * N * 1e6 * new_Vo * rho_org * 1000 / MW_org
         m['PIC'][i] = n_DIC_carb * N * 1e6 * new_Vc * rho_carb * 1000 / MW_carb  # umol kg-1
         m['PC'][i] = m['PIC'][i] + m['POC'][i]
-        
+        m['PIC_POC'][i] = m['PIC'][i] / m['POC'][i]
+             
         # calculate moles released per kg of water
         dMo_dt = N * 1e6 * dVo_dt * rho_org * 1000 / MW_org  # umol organic matter kgSW-1 s-1
         dMc_dt = N * 1e6 * dVc_dt * rho_carb * 1000 / MW_carb # umol CaCO3 kgSW-1 s-1
@@ -139,7 +181,7 @@ def sinking_particles(Fc=0.05, r0=250, k_diss=4.5e-3, p_lifetime=2.5, tmax_days=
 
         isw = cb.Csys(DIC=m['DIC'][i], TA=m['TA'][i], S_in=S, T_in=T, P_in=m['P'][i])
         m['CO3'][i] = isw.CO3
-        m['Omega'][i] = Ca * isw.CO3 * 1e-6 / isw.Ks.KspA
+        m['Omega'][i] = Ca * isw.CO3 * 1e-6 / isw.Ks.KspA / f_solubility
 
     for k in m.keys():
         m[k][0] = np.nan
@@ -148,3 +190,36 @@ def sinking_particles(Fc=0.05, r0=250, k_diss=4.5e-3, p_lifetime=2.5, tmax_days=
     m['t'] = t
     m['rho_sw'] = calc_rho_f(m['z'])
     return m
+
+def depth_slice(z, ms):
+    """
+    Calculate the state of model m at depth z.
+
+    Parameters
+    ----------
+    z : float
+        depth in metres
+    m : dict or array-like
+        particle remineralisation model output
+
+    Returns
+    -------
+    dict
+        model values at the target depth
+    """
+    if isinstance(ms, dict):
+        ms = [ms]
+    
+    mz = {'z': np.full(len(ms), z)}
+
+    for k in ms[0].keys():
+        if k == 'z':
+            continue
+        tmp = np.full(len(ms), np.nan)
+        for i, m in enumerate(ms):
+            ind = ~(np.isnan(m['z']) | np.isnan(m[k]))
+            tmp[i] = np.interp(z, m['z'][ind], m[k][ind], left=-1, right=-1)
+        tmp[tmp < 0] = np.nan
+        mz[k] = tmp
+        
+    return mz
