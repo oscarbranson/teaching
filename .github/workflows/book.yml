@@ -24,6 +24,7 @@ jobs:
         python -m venv ~/py3
         source ~/py3/bin/activate
         pip install -r requirements.txt
+        ipython kernel install --name "py3" --user
     # Build the book
     - name: Build the book
       run: |
