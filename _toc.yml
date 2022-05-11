@@ -1,0 +1,17 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+parts:
+- caption: Part III Earth
+  chapters:
+  - file: Part_III/OceanAcidification
+    sections:
+      - file: Part_III/OceanAcidification/Notes/L1_Fundamentals
+      # - file: Part_III/OceanAcidification/Notes/L2_Calcification
+      # - file: Part_III/OceanAcidification/Notes/L3_Feedbacks
+        # sections:
+      - file: Part_III/OceanAcidification/P3_Ballasting/P3_Ballasting
+
