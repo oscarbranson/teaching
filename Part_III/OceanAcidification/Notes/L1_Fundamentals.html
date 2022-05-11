@@ -1,0 +1,938 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Part 1: Fundamentals &#8212; Oscar&#39;s Teaching Stuff</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Particle Sinking Model" href="../P3_Ballasting/P3_Ballasting.html" />
+    <link rel="prev" title="Ocean Acidification" href="../../OceanAcidification.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Oscar's Teaching Stuff</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Welcome to Oscar’s Teaching Pages
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Part III Earth
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../OceanAcidification.html">
+   Ocean Acidification
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Part 1: Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../P3_Ballasting/P3_Ballasting.html">
+     Particle Sinking Model
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Part_III/OceanAcidification/Notes/L1_Fundamentals.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/oscarbranson/teaching"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/oscarbranson/teaching/issues/new?title=Issue%20on%20page%20%2FPart_III/OceanAcidification/Notes/L1_Fundamentals.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/oscarbranson/teaching/main?urlpath=tree/docs/Part_III/OceanAcidification/Notes/L1_Fundamentals.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#carbon-in-seawater">
+   Carbon in Seawater
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dissolved-inorganic-carbon-dic">
+     Dissolved Inorganic Carbon (DIC)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#speciation-constants">
+     Speciation ‘constants’
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#total-alkalinity-ta">
+     Total Alkalinity(TA)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ta-vs-dic-plots">
+     TA vs. DIC plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measuring-carbon-in-seawater">
+     Measuring Carbon in Seawater
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approximating-carbon-in-seawater">
+     Approximating Carbon in Seawater
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#organic-carbon">
+     Organic Carbon
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#particulate-inorganic-carbon-pic">
+     Particulate Inorganic Carbon (PIC)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saturation-state">
+     Saturation State
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Part 1: Fundamentals</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#carbon-in-seawater">
+   Carbon in Seawater
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dissolved-inorganic-carbon-dic">
+     Dissolved Inorganic Carbon (DIC)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#speciation-constants">
+     Speciation ‘constants’
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#total-alkalinity-ta">
+     Total Alkalinity(TA)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ta-vs-dic-plots">
+     TA vs. DIC plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measuring-carbon-in-seawater">
+     Measuring Carbon in Seawater
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approximating-carbon-in-seawater">
+     Approximating Carbon in Seawater
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#organic-carbon">
+     Organic Carbon
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#particulate-inorganic-carbon-pic">
+     Particulate Inorganic Carbon (PIC)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saturation-state">
+     Saturation State
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="part-1-fundamentals">
+<h1>Part 1: Fundamentals<a class="headerlink" href="#part-1-fundamentals" title="Permalink to this headline">¶</a></h1>
+<p>In its simplest form, ‘Ocean Acidification’ refers to the decrease in seawater pH driven by increasing atmospheric pCO<sub>2</sub>.</p>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {extensions: ["mhchem.js"]}
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script><div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cbsyst</span> <span class="k">as</span> <span class="nn">cb</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span>
+
+<span class="n">sw</span> <span class="o">=</span> <span class="n">cb</span><span class="o">.</span><span class="n">Csys</span><span class="p">(</span><span class="n">pCO2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">450</span><span class="p">),</span> <span class="n">TA</span><span class="o">=</span><span class="mi">2300</span><span class="p">)</span>
+
+<span class="n">preind</span> <span class="o">=</span> <span class="mi">270</span>
+<span class="n">modern</span> <span class="o">=</span> <span class="mi">415</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sw</span><span class="o">.</span><span class="n">pCO2</span><span class="p">,</span> <span class="n">sw</span><span class="o">.</span><span class="n">pHtot</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;pCO2 (ppm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$pH_</span><span class="si">{Total}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">450</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">preind</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">preind</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">8.18</span><span class="p">,</span> <span class="s1">&#39;Pre-Industrial&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">modern</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">modern</span> <span class="o">-</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">8.025</span><span class="p">,</span> <span class="s1">&#39;Modern&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/L1_Fundamentals_2_0.png" src="../../../_images/L1_Fundamentals_2_0.png" />
+</div>
+</div>
+<p>Before we start to think about Ocean Acidification, we must review the fundamentals of carbon in the ocean and the processes that affect it.
+This material could fill an entire course, so we’re going to skim over the essentials.
+For a more complete account of these topics, I recommend Chapter 1 of <span id="id1">[<a class="reference internal" href="#id5" title="Richard E Zeebe and Dieter Wolf-Gladrow. CO2 in Seawater: Equilibrium, Kinetics, Isotopes: Equilibrium, Kinetics, Isotopes. Elsevier Science, 2001. ISBN 0080529224. URL: https://idiscover.lib.cam.ac.uk/permalink/f/1ii55o6/44CAM_ALMA51670486420003606.">Zeebe and Wolf-Gladrow, 2001</a>]</span> for the basics of ocean carbon chemistry, and Chapters 8-10 of <span id="id2">[<a class="reference internal" href="#id6" title="Jorge L. Sarmiento and Nicolas Gruber. Ocean Biogeochemical Dynamics. Princeton University Press, 2006. ISBN 0691017077. URL: https://idiscover.lib.cam.ac.uk/permalink/f/t9gok8/44CAM_ALMA51679018150003606.">Sarmiento and Gruber, 2006</a>]</span> for an account of biogeochemical processes.</p>
+<div class="section" id="carbon-in-seawater">
+<h2>Carbon in Seawater<a class="headerlink" href="#carbon-in-seawater" title="Permalink to this headline">¶</a></h2>
+<p>Carbon in seawater can be divided into ‘Inorganic’ and ‘Organic’ pools, each of which can exist in ‘Dissolved’ and ‘Particulate’ forms.</p>
+<a class="reference internal image-reference" href="../../../_images/P1_01_CPools.png"><img alt="Pools of carbon in seawater" class="align-center" src="../../../_images/P1_01_CPools.png" style="width: 40em;" /></a>
+<div class="section" id="dissolved-inorganic-carbon-dic">
+<h3>Dissolved Inorganic Carbon (DIC)<a class="headerlink" href="#dissolved-inorganic-carbon-dic" title="Permalink to this headline">¶</a></h3>
+<p><strong>DIC</strong> is the simplest form of carbon in seawater - it is the sum of CO<sub>2</sub> and the products of CO<sub>2</sub> reacted with water.
+This is the carbon pool that directly interacts with the atmosphere via the exchange of CO<sub>2</sub>, and is the main pool we are concerned with when considering ocean acidification.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Square Brackets denote concentration.</p>
+</div>
+</div>
+<p>The movement of CO<sub>2</sub> between ocean and atmosphere is predicted by Henry’s Law, which describes the relationship between the partial pressure of a gas and its concentration in the liquid with the <strong>solubility coefficient</strong> K<sub>0</sub>:</p>
+<div class="math notranslate nohighlight">
+\[
+K_0 = \frac{[CO_2]_{aq}}{pCO_2}
+\]</div>
+<p>which depends on the temperature, and to a lesser extent salinity, of the water:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+
+<span class="n">t</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+
+<span class="n">Ks</span> <span class="o">=</span> <span class="n">cb</span><span class="o">.</span><span class="n">calc_Ks</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">Ks</span><span class="o">.</span><span class="n">K0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$K_0$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Salinity&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">t</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">Ks</span> <span class="o">=</span> <span class="n">cb</span><span class="o">.</span><span class="n">calc_Ks</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">Ks</span><span class="o">.</span><span class="n">K0</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$K_0$&#39;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: calc_Ks() missing 5 required positional arguments: &#39;P&#39;, &#39;Mg&#39;, &#39;Ca&#39;, &#39;TS&#39;, and &#39;TF&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This means that more CO<sub>2</sub> is able to dissolve into cooler, less salty water.</p>
+<p>Once CO<sub>2</sub> is dissolved it reacts with water to form carbonic acid, a diprotic acid that dissociates into three dissolved species:</p>
+<div class="math notranslate nohighlight">
+\[
+CO_{2(aq)} + H_2O \leftrightarrow \underbrace{H_2CO_3}_{carbonic~acid} \leftrightarrow \underbrace{HCO_3^-}_{bicarbonate} + H^+ \leftrightarrow \underbrace{CO_3^{2-}}_{carbonate} + 2H^+
+\]</div>
+<p>and DIC is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+DIC &amp;= [CO_{2(aq)}] + [H_2CO_3] + [HCO_3^-] + [CO_3^{2-}] \\
+&amp;= [CO_2^*] + [HCO_3^-] + [CO_3^{2-}]
+\end{align}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\([CO_2^*]\)</span> is used in place of the first two species because carbonic acid is functionally absent at normal seawater pH - as soon as CO<sub>2</sub> reacts with water to form carbonic acid it dissociates to bicarbonate and a proton.</p>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a good approximation in most cases, but be aware that the reaction of CO<sub>2</sub> with water is much slower than the dissociation reactions because it involves breaking strong C-O bonds, whereas the dissociation simply adds and removes protons (H<sup>+</sup>).
+This means that the CO<sub>2</sub><sup>*</sup> appriximation will start to break down in dynamic systems where DIC speciation is far from equilibrium with CO<sub>2(aq)</sub>.
+This can become important when considering ocean-atmosphere interactions, because CO<sub>2(aq)</sub>, rather than than H<sub>2</sub>CO<sub>3</sub>, is the species that exchanges with CO<sub>2(g)</sub> in the atmosphere.</p>
+</div>
+<p>From the dissociation reaction above, you can see that the abundance of each DIC species will vary as a function of pH (where <span class="math notranslate nohighlight">\(pH = -log_{10}[H^+]\)</span>):</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sw</span> <span class="o">=</span> <span class="n">cb</span><span class="o">.</span><span class="n">Csys</span><span class="p">(</span><span class="n">pHtot</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">11.5</span><span class="p">),</span> <span class="n">DIC</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sw</span><span class="o">.</span><span class="n">pHtot</span><span class="p">,</span> <span class="n">sw</span><span class="o">.</span><span class="n">CO2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$CO_2^*$&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sw</span><span class="o">.</span><span class="n">pHtot</span><span class="p">,</span> <span class="n">sw</span><span class="o">.</span><span class="n">HCO3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$HCO_3^-$&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sw</span><span class="o">.</span><span class="n">pHtot</span><span class="p">,</span> <span class="n">sw</span><span class="o">.</span><span class="n">CO3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$CO_3^{2-}$&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction of DIC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$pH_</span><span class="si">{Total}</span><span class="s1">$&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/L1_Fundamentals_6_0.png" src="../../../_images/L1_Fundamentals_6_0.png" />
+</div>
+</div>
+<p>The speciation of DIC is described by the <strong>stoichiometric equilibrium constants</strong> K<sub>1</sub> and K<sub>2</sub>:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The speciation of DIC has five unknowns (pCO<sub>2</sub>, pH, [CO<sub>2</sub><sup>*</sup>], [HCO<sub>3</sub><sup>-</sup>] and [CO<sub>3</sub><sup>2-</sup>]), and is described by the three equations for the speciation constants K<sub>0</sub>, K<sub>1</sub> and K<sub>2</sub>. This means that you need to know two of the unknowns to fully characterise DIC speciation.</p>
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+K_1 &amp;= \frac{[H^+][HCO_3^-]}{[CO_2^*]} \\
+K_2 &amp;= \frac{[H^+][CO_3^{2-}]}{[HCO_3^-]}
+\end{align}
+\end{split}\]</div>
+<p>which can be combined with the definition of DIC above to calculate the abundance of each DIC species as a function of [DIC], [H<sup>+</sup>] and the equilibrium constants K<sub>1</sub> and K<sub>2</sub>:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Click to show <span class="math notranslate nohighlight">\([CO_2^*]\)</span> example.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{align}
+DIC &amp;= [CO_2^*] + [HCO_3^-] + [CO_3^{2-}] \\
+&amp;= [CO_2^*] + [HCO_3^-] + \frac{K_2 [HCO_3^-]}{[H^+]} &amp; substitute ~ [CO_3^{2-}] ~ using ~ K_2 \\
+&amp;= [CO_2^*] + \frac{K_1[CO_2^*]}{[H^+]} + \frac{K_2 K_1 [CO_2^*]}{[H^+]^2} &amp; substitute ~ [HCO_3^{-}] ~ using ~ K_1 \\
+&amp;= [CO_2^*] \left( 1 + \frac{K_1}{[H^+]} + \frac{K_2 K_1}{[H^+]^2} \right) &amp; separate ~ [CO_2^*] \\
+[CO_2^*] &amp;= \frac{DIC}{1 + \frac{K_1}{[H^+]} + \frac{K_1K_2}{[H^+]^2}} &amp; solve ~ for ~ [CO_2^*]
+\end{align}
+\)</span></p>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+[CO_2^*] &amp;= \frac{DIC}{1 + \frac{K_1}{[H^+]} + \frac{K_1K_2}{[H^+]^2}} \\
+[HCO_3^-] &amp;= \frac{DIC}{1 + \frac{[H^+]}{K_1} + \frac{K_2}{[H^+]^2}} \\
+[CO_3^{2-}] &amp;= \frac{DIC}{1 + \frac{[H^+]}{K_2} + \frac{[H^+]^2}{K_1K_2}} \\
+\end{align}
+\end{split}\]</div>
+<p>At standard salinity and temperature (35, 25 C) and 1 atmosphere pressure (surface seawater), these Ks and <span class="math notranslate nohighlight">\(pKs\)</span> (<span class="math notranslate nohighlight">\(-log_{10}K\)</span>) are:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(K\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(pK\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(K_0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2.839 \times 10^{-2}\)</span></p></td>
+<td><p>1.547</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(K_1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1.422 \times 10^{-6}\)</span></p></td>
+<td><p>5.847</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(K_2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1.082 \times 10^{-9}\)</span></p></td>
+<td><p>8.966</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="speciation-constants">
+<h3>Speciation ‘constants’<a class="headerlink" href="#speciation-constants" title="Permalink to this headline">¶</a></h3>
+<p>These ‘constants’ are not constant; they depend significantly on temperature, pressure and salinity. This is because the Ks themselves have no physical meaning - they are descriptive factors that capture the state of the underlying thermodynamics controlling the associatoin and dissociation of dissolved ions in solution. We use them because they allow us to conveniently calculate speciation.</p>
+<p>The sensitivity of Ks to temperature and pressure arises directly from thermodynamics.
+Each of these properties modifies the free energy of the equilibrium reactions in the system, causing the balance of species to shift, and the speciation constants to change.</p>
+<p>The effect of salinity is more complex.
+All speciation constants in seawater (or other high-ionic-strength solutions) deviate significantly from thermodynamically calculated equilibrium constants for ideal (infinitely dilute) solutions.
+This is because thermodynamic calculations deal with ion <em>activities</em>.
+In an ideal solution activity is equivalent to concentration, but these quantities can vary substantially in complex ionic solutions.
+This deviation is caused by ion-pairing interactions.
+Seawater is full of dissociated charged species dissolved in a polar solvent (water), and these ions interact to form weakly bound pairs and clusters, as well as generating ‘shells’ of ordered water molecules around them.
+It takes energy to break these interactions, so once an ion is involved in them it effectively lowers its availablility to take part in chemical reactions.
+This is described by an <em>ion activity coefficient</em> (<span class="math notranslate nohighlight">\(\gamma\)</span>), which relates concentration to activity in a non-ieal solution:</p>
+<div class="math notranslate nohighlight">
+\[
+\{A\} = \gamma_A [A]
+\]</div>
+<p>Where curly brackets denote activity, and square brackets denote concentration.</p>
+<p>These activity coefficients are complex to calculate - just think of the number of different ions in seawater that can interact, and then remember that each of these reactions will depend to different degrees on temperature and pressure!
+Mathematical frameworks exist to make these calculations (e.g. the <a class="reference external" href="https://en.wikipedia.org/wiki/Pitzer_equations">Pitzer equations</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Debye%E2%80%93H%C3%BCckel_theory">Debye–Hückel theory</a>) and programs exist that will do them for you (e.g. <a class="reference external" href="https://www.usgs.gov/software/phreeqc-version-3">PHREEQC</a>), but ultimately all of these involve approximations and empirical coefficients which can break down outside the strict boundary conditions that they were measured in.</p>
+<p>For the purposes of seawater calculations, extensive empirical work has established precisely measured empirical speciation constants. These are distinguished from theoretical thermodynamic values by an asterisk (e.g. <span class="math notranslate nohighlight">\(K_1^*\)</span>), they work with ion concentrations instead of activities, and are known as <strong>stoichiometric equilibrium constants</strong>. These constants do a decent job of calculating carbon speciation over the entire range of temperature, pressure and salinity found in the modern ocean.</p>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="https://github.com/oscarbranson/cbsyst/raw/master/cbsyst/test_data/GLODAP_data/Figures/pH_comparison.png"><img alt="The efficacy of empirical stoichiometric speciation constants." class="bg-primary mb-1" src="https://github.com/oscarbranson/cbsyst/raw/master/cbsyst/test_data/GLODAP_data/Figures/pH_comparison.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text"><strong>Measured pH vs. pH predicted from DIC and TA measurements using stoichiometric equilibrium constants</strong> for 79,896 seawater samples in the <strong>GL</strong>obal <strong>O</strong>cean <strong>D</strong>ata <strong>A</strong>nalysis <strong>P</strong>roject (GLODAP) database, which contains data from a wide range of temperature, pressure and salinity conditions.</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="total-alkalinity-ta">
+<h3>Total Alkalinity(TA)<a class="headerlink" href="#total-alkalinity-ta" title="Permalink to this headline">¶</a></h3>
+<p>A final important concept in carbon speciation is the concept of <strong>Total Alkalinity (TA)</strong>.
+This somewhat-tricky concept is a key property for describing ocean carbon because it is <em>conservative</em> (does not change with temperature or pressure, like mass, salt or DIC).
+This is important because the concentration of the dissolved carbon species and pH all vary substantially with temperature and pressure.
+This makes it difficult to understand whether the carbon system is being modified by external processes, or simply responding to changes in physical conditions.
+A change in DIC or TA has to be caused by an external process acting on the water body.
+Along with DIC, this provides two conservative quantities that can be used to fully describe the concentration and speciation of carbon in seawater.</p>
+<p>So now we know why we might want it, what is it?!
+Total Alkalinity can be described in different ways depending on the context.
+For example, TA is:</p>
+<ol class="simple">
+<li><p>the charge difference between conservative anions and cations</p></li>
+<li><p>the excess of proton acceptors over donors</p></li>
+<li><p>the moles of acid per kg of seawater that must be added to reach the ‘equivalence point’, where <span class="math notranslate nohighlight">\([H^+] = [HCO_3^-]\)</span></p></li>
+</ol>
+<p>For our purposes you can think of TA as ‘setting’ both the pH and DIC speciation in seawater such that the positive and negative charges in that water balance.
+For a more complete undertanding of the topic, I recommend Section 1.2 of <span id="id3">[<a class="reference internal" href="#id5" title="Richard E Zeebe and Dieter Wolf-Gladrow. CO2 in Seawater: Equilibrium, Kinetics, Isotopes: Equilibrium, Kinetics, Isotopes. Elsevier Science, 2001. ISBN 0080529224. URL: https://idiscover.lib.cam.ac.uk/permalink/f/1ii55o6/44CAM_ALMA51670486420003606.">Zeebe and Wolf-Gladrow, 2001</a>]</span>.</p>
+<p>Regardless of the precise definition you use to get there, the important species that make up TA in seawater are:</p>
+<div class="math notranslate nohighlight">
+\[
+TA = [HCO_3^-] + 2 [CO_3^{2-}] + [B(OH)_4^-] + [OH^-] - [H^+]
+\]</div>
+</div>
+<div class="section" id="ta-vs-dic-plots">
+<h3>TA vs. DIC plots<a class="headerlink" href="#ta-vs-dic-plots" title="Permalink to this headline">¶</a></h3>
+<p>The conservative quantities DIC and TA provide a convenient framework for considering the influence of different physical and biogeochemical processes on carbon in the ocean.
+The non-conservative quantities (pH, <span class="math notranslate nohighlight">\(pCO_2\)</span> and the concentration of each C species) then plot as countours in DIC-TA space, where the position of these contours moves around as a function of temperature, salinity and pressure, corresponding to the underlying changes in Ks.</p>
+<p>For example, within this framework we can consider the addition or removal of <span class="math notranslate nohighlight">\(CO_2\)</span>, which modifies DIC but not TA.
+This shows us how adding or removing <span class="math notranslate nohighlight">\(CO_2\)</span> shifts the balance between DIC and TA in seawater, causing the pH and carbon speciation to shift.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DIC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1950</span><span class="p">,</span> <span class="mi">2050</span><span class="p">)</span>
+<span class="n">TA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2300</span><span class="p">,</span> <span class="mi">2400</span><span class="p">)</span>
+
+<span class="n">dic</span><span class="p">,</span> <span class="n">ta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">DIC</span><span class="p">,</span> <span class="n">TA</span><span class="p">)</span>
+
+<span class="n">sw</span> <span class="o">=</span> <span class="n">cb</span><span class="o">.</span><span class="n">Csys</span><span class="p">(</span><span class="n">DIC</span><span class="o">=</span><span class="n">dic</span><span class="p">,</span> <span class="n">TA</span><span class="o">=</span><span class="n">ta</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">c_pH</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">sw</span><span class="o">.</span><span class="n">DIC</span><span class="p">,</span> <span class="n">sw</span><span class="o">.</span><span class="n">TA</span><span class="p">,</span> <span class="n">sw</span><span class="o">.</span><span class="n">pHtot</span><span class="p">,</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">,</span> <span class="mf">8.2</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">c_pH</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],[],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;pH&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+
+<span class="n">c_pCO2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">sw</span><span class="o">.</span><span class="n">DIC</span><span class="p">,</span> <span class="n">sw</span><span class="o">.</span><span class="n">TA</span><span class="p">,</span> <span class="n">sw</span><span class="o">.</span><span class="n">pCO2</span><span class="p">,</span> <span class="p">[</span><span class="mi">250</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">450</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">c_pCO2</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],[],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$pCO_2$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;DIC $\mu mol~kg^{-1}$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;TA $\mu mol~kg^{-1}$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">delta</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">centre</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2350</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="n">centre</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">*</span><span class="n">centre</span><span class="p">,</span> <span class="o">-</span><span class="n">delta</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$CO_2~out$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">centre</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">centre</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">delta</span> <span class="o">/</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">centre</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">*</span><span class="n">centre</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$CO_2~in$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">centre</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">centre</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">delta</span> <span class="o">/</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">centre</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span><span class="mi">2</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(2016.6666666666667, 2352, &#39;$CO_2~in$&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/L1_Fundamentals_9_1.png" src="../../../_images/L1_Fundamentals_9_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="measuring-carbon-in-seawater">
+<h3>Measuring Carbon in Seawater<a class="headerlink" href="#measuring-carbon-in-seawater" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned above, understanding carbon in seawater requires measurements of two aspects of the system. The most commonly measured components are DIC, TA and pH.</p>
+<p><strong>pH</strong> can be measured either using an <span class="math notranslate nohighlight">\(H^+\)</span> electrode, calibrated against standard buffer solutions with known pH, or spectrophotometrically using indicator dyes. The latter method tends to be much more precise, but can only be conducted ex-situ, as it requires adding an indicator dye to the solution.</p>
+<p><strong>TA</strong> is measured by titration, adding a strong acid to a known volume of seawater and monitoring the pH of the reaction using an electrode. This produces a characteristic calibration curve with two inflection points that can be interpreted using a <a class="reference external" href="https://en.wikipedia.org/wiki/Gran_plot">Gran plot</a> to determine the equivalence point of the reaction.</p>
+<p><strong>DIC</strong> is measured by acidifying the seawater to quantitatively convert DIC to CO<sub>2</sub>. This is then equilibrated with an overlying headspace where the CO<sub>2</sub> is measured by pressure change or spectral absorption methods.</p>
+</div>
+<div class="section" id="approximating-carbon-in-seawater">
+<h3>Approximating Carbon in Seawater<a class="headerlink" href="#approximating-carbon-in-seawater" title="Permalink to this headline">¶</a></h3>
+<p>The complexity of carbon speciation in seawater can make it tricky to get an intuitive understanding of the influence of different oceangraphic and climatic processes.
+There are some useful approximations we can make to simplify controlling parameters of the equilibrium, allowing us to get a feel for how the system responds to perturbations without having to do the full calculations.
+These approximations arise from considering which carbon species contribute most to both DIC and TA at ‘normal’ seawater conditions:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+DIC &amp;= \underbrace{[CO_2^*]}_{0.5\%} + \underbrace{[HCO_3^-]}_{86.5\%} + \underbrace{2 [CO_3^{2-}]}_{13\%} \\
+TA &amp;= \underbrace{[HCO_3^-]}_{77\%} + \underbrace{2 [CO_3^{2-}]}_{19\%} + \underbrace{[B(OH)_4^-]}_{4\%} + \underbrace{[OH^-] - [H^+]}_{minor}
+\end{align}
+\end{split}\]</div>
+<p>It’s clear that <span class="math notranslate nohighlight">\([HCO_3^-]\)</span> and <span class="math notranslate nohighlight">\([CO_3^{2-}]\)</span> contribute most to both quantities.
+This means we can approximate each in terms of only these species, with relatively little innacuracy.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+DIC &amp;\approx [HCO_3^-] + [CO_3^{2-}] \\
+TA &amp;\approx CA = [HCO_3^-] + 2 [CO_3^{2-}]
+\end{align}
+\end{split}\]</div>
+<p>We can then directly approximate species of interest from these approximations, following:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+[CO_3^{2-}] &amp;\approx CA - DIC \\
+[HCO_3^-] &amp;\approx DIC - [CO_3^{2-}] = 2DIC - CA \\
+pCO_2 &amp;\approx \frac{K_2 (2DIC - CA)^2}{K_0 K_1 (CA - DIC)}
+\end{align}
+\end{split}\]</div>
+</div>
+<div class="section" id="organic-carbon">
+<h3>Organic Carbon<a class="headerlink" href="#organic-carbon" title="Permalink to this headline">¶</a></h3>
+<p><strong>Total Organic Carbon (TOC)</strong> is a second, major pool of carbon, consisting of a wide variety of complex carbon-based compounds produced by the action of biology.
+Organic carbon is created from DIC by <strong>photosynthesis</strong>, and converted back to DIC by <strong>respiration</strong>, in a process broadly known as <strong>remineralisation</strong> - converting complex solids back to their dissolved constituent forms.
+The Total Organic Carbon (<strong>TOC</strong>) pool is, rather arbitrarily, split into ‘Particulate’ (<strong>POC</strong>) and ‘Dissolved’ (<strong>DOC</strong>) pools, based on whether it will fit through a fine filter (typically 0.7 μm).</p>
+<p>There are a lot of complexities surrounding organic carbon, but for our purposes we will approximate its formation and remineralisation to a single reversible chemical reaction converting between dissolved chemicals into complex organic molecules:</p>
+<div class="math notranslate nohighlight">
+\[
+106 CO_2 + 16 NO_3^- + HPO_4^{2-} + 78 H_2O + 18 H^+ \leftrightarrow C_{106}H_{175}O_{42}N_{16}P
+\]</div>
+<p>The ratio between the major nutrients in organic matter of 106C : 16N : P is relatively consistent across all marine organic matter. This phenomenon that was first observed in 1934 by the oceanographer Alfred Redfield, and has become known as the Redfield ratio.</p>
+<p>In context of ocean carbon, we can see that the forward reaction consumes 106 units of <span class="math notranslate nohighlight">\(CO_2\)</span> and releases 18 <span class="math notranslate nohighlight">\(H^+\)</span>. The release of <span class="math notranslate nohighlight">\(H^+\)</span> is caused by the dissociation of <span class="math notranslate nohighlight">\(HNO_3\)</span> and <span class="math notranslate nohighlight">\(H_3PO_4\)</span> during uptake. In DIC-TA space, this places the vectors for organic carbon production and remineralisation on a slight angle relative to <span class="math notranslate nohighlight">\(CO_2\)</span> uptake/release:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">18.</span><span class="o">/</span><span class="mi">106</span><span class="p">])</span> <span class="o">*</span> <span class="mi">25</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">*</span><span class="n">centre</span><span class="p">,</span> <span class="o">*-</span><span class="n">delta</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$Photo.$&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">centre</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="n">centre</span> <span class="o">-</span> <span class="n">delta</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mf">9.8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">*</span><span class="n">centre</span><span class="p">,</span> <span class="o">*</span><span class="n">delta</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Remin.&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">centre</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="n">centre</span> <span class="o">+</span> <span class="n">delta</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mf">9.8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/L1_Fundamentals_13_0.png" src="../../../_images/L1_Fundamentals_13_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="particulate-inorganic-carbon-pic">
+<h3>Particulate Inorganic Carbon (PIC)<a class="headerlink" href="#particulate-inorganic-carbon-pic" title="Permalink to this headline">¶</a></h3>
+<p>PIC is CaCO<sub>3</sub>. This can be any of the CaCO<sub>3</sub> polymorphs which are, in approximate order of solubility, calcite, aragonite, high-Mg calcite, vaterite, monohydrocalcite and amorphous calcium carbonate. PIC is produced from DIC by <strong>calcification</strong>, predominantly mediated by biology, and return to DIC by <strong>dissolution</strong>, which is (mostly) an inorganic process.</p>
+<p>These processes are covered in more detail in Part 2, but briefly…</p>
+<p>Calcification and dissolution can be written as the reversible reaction:
+$<span class="math notranslate nohighlight">\(
+Ca^{2+} + CO_3^{2-} \leftrightarrow CaCO_3
+\)</span>$</p>
+<p>We can see from this that calcification consumes one unit of DIC and <strong>two</strong> units of alkalinity, because of the double charge on CO<sub>3</sub><sup>2-</sup>. This makes these processes plot with a 2:1 ratio in TA:DIC space:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">*</span> <span class="mi">20</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">*</span><span class="n">centre</span><span class="p">,</span> <span class="o">*-</span><span class="n">delta</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Diss.&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">centre</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="n">centre</span> <span class="o">-</span> <span class="n">delta</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mf">58.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">*</span><span class="n">centre</span><span class="p">,</span> <span class="o">*</span><span class="n">delta</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Calc.&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">centre</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="n">centre</span> <span class="o">+</span> <span class="n">delta</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mf">58.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/L1_Fundamentals_15_0.png" src="../../../_images/L1_Fundamentals_15_0.png" />
+</div>
+</div>
+<p>Another point noting here is that, just like with the reversible reactions of DIC dissociation, calcfication and dissolution are described using an equilibrium constant, K. However, because we’re dealing with a mineral rather than a dissolved species it’s known as an <em>equilibrium solubility product</em>, and is defined as the product of the constituent ions in seawater when the mineral will neither form nor dissolve:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+K_{sp} = ([Ca^{2+}][CO_3^{2-}])_{eq}
+\end{align}
+\]</div>
+<p>Because the different minerals have different characteristic structures, they have different enthalpy, Gibb’s free energies and therefore stabilities. This means that each polymorph of a mineral has a different K<sub>sp</sub>, for example at standard salinity, temperature and pressure:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(K\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(pK\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(K_{sp,Calc}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(4.272 \times 10^{-7}\)</span></p></td>
+<td><p>6.369</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(K_{sp,Arag}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(6.482 \times 10^{-7}\)</span></p></td>
+<td><p>6.188</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="saturation-state">
+<h3>Saturation State<a class="headerlink" href="#saturation-state" title="Permalink to this headline">¶</a></h3>
+<p>These Ks allow us to calculate a very useful quantity that is commonplace in discussion of ocean acidification - the saturation state, <span class="math notranslate nohighlight">\(\Omega\)</span>, of water, which is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\Omega = \frac{[Ca^{2+}][CO_3^{2-}]}{K_{sp}}
+\end{align}
+\]</div>
+<p>When <span class="math notranslate nohighlight">\(\Omega = 1\)</span> calcium carbonate is in equilibrium with the solution (neither forms nor dissolves), calcium carbonate formation is favoured when <span class="math notranslate nohighlight">\(\Omega &gt; 1\)</span>, and dissolution is favoured at <span class="math notranslate nohighlight">\(\Omega &lt; 1\)</span>.</p>
+<p>From this, we can see that <span class="math notranslate nohighlight">\(\Omega\)</span> is sensitive to changes in [Ca<sup>2+</sup>], [CO<sub>3</sub><sup>2-</sup>] or K<sub>sp</sub>.
+Of these, [Ca<sup>2+</sup>] is relatively constant in seawater (10.2 mmol kg<sup>-1</sup>), [CO<sub>3</sub><sup>2-</sup>] is highly variable and depends to the state of the DIC equilibrium (and therefore ocean pH/pCO<sub>2</sub>/ocean acidification), and K<sub>sp</sub>, just like the equilibrium constants for DIC speciation, is sensitive to temperature, salinity and pressure:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+
+<span class="n">Ks</span> <span class="o">=</span> <span class="n">cb</span><span class="o">.</span><span class="n">calc_Ks</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+<span class="n">Ca</span> <span class="o">=</span> <span class="mf">10.2e-3</span>  <span class="c1"># mol kg-1</span>
+<span class="n">CO3</span> <span class="o">=</span> <span class="mf">90e-6</span>  <span class="c1"># mol kg-1</span>
+<span class="n">Omega</span> <span class="o">=</span> <span class="n">Ca</span> <span class="o">*</span> <span class="n">CO3</span> <span class="o">/</span> <span class="n">Ks</span><span class="o">.</span><span class="n">KspC</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">Omega</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\Omega_</span><span class="si">{Calcite}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ca: 10.2 $mmol~kg^{-1},~~CO_3^{2-}:~90~\mu mol~kg^{-1}$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure bar&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/L1_Fundamentals_17_0.png" src="../../../_images/L1_Fundamentals_17_0.png" />
+</div>
+</div>
+<p>This means that, for a given [Ca<sup>2+</sup>] and [CO<sub>3</sub><sup>2-</sup>], calcium carbonate minerals dissolve more easily at higher pressures and lower temperatures.</p>
+<p>However, this picture isn’t quite right, because those same temperature and pressure changes will also drive concommitant changes K<sub>1</sub> and K<sub>2</sub>, and therefore [CO<sub>3</sub><sup>2-</sup>]. This changes two parts of our <span class="math notranslate nohighlight">\(\Omega\)</span> expression, and the true change in calcium carbonate solubility is:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+
+<span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+
+<span class="n">sw</span> <span class="o">=</span> <span class="n">cb</span><span class="o">.</span><span class="n">Csys</span><span class="p">(</span><span class="n">TA</span><span class="o">=</span><span class="mi">2300</span><span class="p">,</span> <span class="n">DIC</span><span class="o">=</span><span class="mi">2100</span><span class="p">,</span> <span class="n">T_in</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">S_in</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">P_in</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+<span class="n">Ca</span> <span class="o">=</span> <span class="mf">10.2e-3</span>  <span class="c1"># mol kg-1</span>
+<span class="n">Omega</span> <span class="o">=</span> <span class="n">Ca</span> <span class="o">*</span> <span class="n">sw</span><span class="o">.</span><span class="n">CO3</span> <span class="o">*</span> <span class="mf">1e-6</span> <span class="o">/</span> <span class="n">sw</span><span class="o">.</span><span class="n">Ks</span><span class="o">.</span><span class="n">KspC</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">],</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ma1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">sw</span><span class="o">.</span><span class="n">CO3</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ma1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$[CO_3^{2-}]~\mu mol~kg^{-1}$&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature C&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure bar&#39;</span><span class="p">);</span>
+
+<span class="n">ma2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">Omega</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ma2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\Omega_</span><span class="si">{Calcite}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ca: 10.2 $mmol~kg^{-1}$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature C&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/L1_Fundamentals_19_0.png" src="../../../_images/L1_Fundamentals_19_0.png" />
+</div>
+</div>
+<p>As you can see here, the change in <span class="math notranslate nohighlight">\(\Omega\)</span> with pressure is similar, but the influence of temperature is increased. This has the major implication that the cold surface ocean in the high lattitudes will be affected by ocean acidification first.</p>
+</div>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<div class="docutils container" id="id4">
+<dl class="citation">
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id2">SG06</a></span></dt>
+<dd><p>Jorge L. Sarmiento and Nicolas Gruber. <em>Ocean Biogeochemical Dynamics</em>. Princeton University Press, 2006. ISBN 0691017077. URL: <a class="reference external" href="https://idiscover.lib.cam.ac.uk/permalink/f/t9gok8/44CAM_ALMA51679018150003606">https://idiscover.lib.cam.ac.uk/permalink/f/t9gok8/44CAM_ALMA51679018150003606</a>.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">ZWG01</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p>Richard E Zeebe and Dieter Wolf-Gladrow. <em>CO2 in Seawater: Equilibrium, Kinetics, Isotopes: Equilibrium, Kinetics, Isotopes</em>. Elsevier Science, 2001. ISBN 0080529224. URL: <a class="reference external" href="https://idiscover.lib.cam.ac.uk/permalink/f/1ii55o6/44CAM_ALMA51670486420003606">https://idiscover.lib.cam.ac.uk/permalink/f/1ii55o6/44CAM_ALMA51670486420003606</a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "py3"
+        },
+        kernelOptions: {
+            kernelName: "py3",
+            path: "./Part_III/OceanAcidification/Notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'py3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../../OceanAcidification.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Ocean Acidification</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../P3_Ballasting/P3_Ballasting.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Particle Sinking Model</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Oscar Branson<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
