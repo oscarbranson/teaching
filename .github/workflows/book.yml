@@ -21,10 +21,13 @@ jobs:
 
     - name: Install dependencies
       run: |
+        python -m venv ~/py3
+        source ~/py3/bin/activate
         pip install -r requirements.txt
     # Build the book
     - name: Build the book
       run: |
+        source ~/py3/bin/activate
         jupyter-book build .
     # Push the book's HTML to github-pages
     - name: Push to github-pages
