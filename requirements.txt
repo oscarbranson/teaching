@@ -6,5 +6,5 @@ uncertainties
 pandas
 scipy
 tqdm
-kgen
+# kgen
 git+https://github.com/oscarbranson/cbsyst.git@dev
