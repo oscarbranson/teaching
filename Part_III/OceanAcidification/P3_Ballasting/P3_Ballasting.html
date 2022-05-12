@@ -335,16 +335,19 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">cbsyst.helpers</span> <span class="kn">import</span> <span class="n">data_out</span><span class="p">,</span> <span class="n">Bunch</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">VERSION</span> <span class="o">=</span> <span class="s1">&#39;0.4.0-alpha&#39;</span>
 
-<span class="n">File</span> <span class="o">~/</span><span class="n">py3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Functions for calculating the carbon and boron chemistry of seawater.</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="n">File</span> <span class="o">~/</span><span class="n">py3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">kgen</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">cbsyst.helpers</span> <span class="kn">import</span> <span class="n">Bunch</span><span class="p">,</span> <span class="n">maxL</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">kgen</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">cbsyst.helpers</span> <span class="kn">import</span> <span class="n">Bunch</span><span class="p">,</span> <span class="n">maxL</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># from cbsyst.MyAMI_V2 import MyAMI_K_calc, MyAMI_K_calc_multi, MyAMI_K_calc_direct</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">cbsyst.carbon</span> <span class="kn">import</span> <span class="n">calc_C_species</span><span class="p">,</span> <span class="n">calc_revelle_factor</span><span class="p">,</span> <span class="n">pCO2_to_fCO2</span><span class="p">,</span> <span class="n">fCO2_to_CO2</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;kgen&#39;
+<span class="n">File</span> <span class="o">~/</span><span class="n">py3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">/</span><span class="n">helpers</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;uncertainties&#39;
 </pre></div>
 </div>
 </div>
