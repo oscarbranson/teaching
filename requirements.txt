@@ -1,4 +1,5 @@
 jupyter-book
 matplotlib
 numpy
+kgen
 git+https://github.com/oscarbranson/cbsyst.git@dev
