@@ -17,40 +17,64 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from ballasting import model, plot
+mPOC = model.sinking_particles(N=1, tmax_days=10, PIC_POC=0)
+mPIC = model.sinking_particles(N=1, PIC_POC=1e6)
 
-bottom_depth = 3000  # m
+plot.models([mPOC, mPIC], bottom_depth=bottom_depth, model_labels=['POC', 'PIC']);
+
+# particulate carbon remaining at 2000m in umol kgSW-1
+print('POC only')
+zs = model.depth_slice(bottom_depth, mPOC)
+print(zs['POC'], zs['PIC'])
+
+print('PIC only')
+zs = model.depth_slice(bottom_depth, mPIC)
+print(zs['POC'], zs['PIC']) 
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Input [0;32mIn [1][0m, in [0;36m<cell line: 1>[0;34m()[0m
-[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mballasting[39;00m [38;5;28;01mimport[39;00m model, plot
-[1;32m      3[0m bottom_depth [38;5;241m=[39m [38;5;241m3000[39m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [2][0m, in [0;36m<cell line: 1>[0;34m()[0m
+[0;32m----> 1[0m mPOC [38;5;241m=[39m [43mmodel[49m[38;5;241;43m.[39;49m[43msinking_particles[49m[43m([49m[43mN[49m[38;5;241;43m=[39;49m[38;5;241;43m1[39;49m[43m,[49m[43m [49m[43mtmax_days[49m[38;5;241;43m=[39;49m[38;5;241;43m10[39;49m[43m,[49m[43m [49m[43mPIC_POC[49m[38;5;241;43m=[39;49m[38;5;241;43m0[39;49m[43m)[49m
+[1;32m      2[0m mPIC [38;5;241m=[39m model[38;5;241m.[39msinking_particles(N[38;5;241m=[39m[38;5;241m1[39m, PIC_POC[38;5;241m=[39m[38;5;241m1e6[39m)
+[1;32m      4[0m plot[38;5;241m.[39mmodels([mPOC, mPIC], bottom_depth[38;5;241m=[39mbottom_depth, model_labels[38;5;241m=[39m[[38;5;124m'[39m[38;5;124mPOC[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mPIC[39m[38;5;124m'[39m]);
 
-File [0;32m~/work/teaching/teaching/Part_III/OceanAcidification/P3_Ballasting/ballasting/model.py:2[0m, in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[0;32m----> 2[0m [38;5;28;01mimport[39;00m [38;5;21;01mcbsyst[39;00m [38;5;28;01mas[39;00m [38;5;21;01mcb[39;00m
-[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtqdm[39;00m[38;5;21;01m.[39;00m[38;5;21;01mnotebook[39;00m [38;5;28;01mimport[39;00m tqdm
-[1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mhelpers[39;00m [38;5;28;01mimport[39;00m calc_rho_f, calc_rho_p, calc_Rdiss, calc_Rremin, calc_wsink, sphere_vol_from_radius, sphere_radius_from_vol, day_2_seconds, calc_O2_sat
+File [0;32m~/work/teaching/teaching/Part_III/OceanAcidification/P3_Ballasting/ballasting/model.py:79[0m, in [0;36msinking_particles[0;34m(PIC_POC, r0, k_diss, p_lifetime, f_solubility, tmax_days, tsteps, N, T, S, TA0, pCO20)[0m
+[1;32m     75[0m Fc [38;5;241m=[39m vPIC_POC [38;5;241m/[39m ([38;5;241m1[39m [38;5;241m+[39m vPIC_POC)
+[1;32m     77[0m [38;5;66;03m# Vmix = 0  # kgSW s-1[39;00m
+[0;32m---> 79[0m sw [38;5;241m=[39m [43mcb[49m[38;5;241;43m.[39;49m[43mCsys[49m[43m([49m[43mTA[49m[38;5;241;43m=[39;49m[43mTA0[49m[43m,[49m[43m [49m[43mpCO2[49m[38;5;241;43m=[39;49m[43mpCO20[49m[43m,[49m[43m [49m[43mT_in[49m[38;5;241;43m=[39;49m[43mT[49m[43m,[49m[43m [49m[43mS_in[49m[38;5;241;43m=[39;49m[43mS[49m[43m)[49m
+[1;32m     80[0m init [38;5;241m=[39m {
+[1;32m     81[0m     [38;5;124m'[39m[38;5;124mz[39m[38;5;124m'[39m: [38;5;241m0[39m,
+[1;32m     82[0m     [38;5;124m'[39m[38;5;124mR_z[39m[38;5;124m'[39m: [38;5;241m0[39m,
+[0;32m   (...)[0m
+[1;32m     90[0m     [38;5;124m'[39m[38;5;124mPIC_POC[39m[38;5;124m'[39m: PIC_POC
+[1;32m     91[0m }
+[1;32m     92[0m Vp [38;5;241m=[39m sphere_vol_from_radius(init[[38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m])
 
-File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/__init__.py:1[0m, in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcbsyst[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcbsyst[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
-[1;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcbsyst[39;00m[38;5;21;01m.[39;00m[38;5;21;01mhelpers[39;00m [38;5;28;01mimport[39;00m data_out, Bunch
-[1;32m      4[0m VERSION [38;5;241m=[39m [38;5;124m'[39m[38;5;124m0.4.0-alpha[39m[38;5;124m'[39m
+File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/cbsyst.py:194[0m, in [0;36mCsys[0;34m(pHtot, DIC, CO2, HCO3, CO3, TA, fCO2, pCO2, BT, Ca, Mg, T_in, S_in, P_in, T_out, S_out, P_out, TP, TSi, TS, TF, pHsws, pHfree, pHNBS, Ks, pdict, unit)[0m
+[1;32m    191[0m     ps[38;5;241m.[39mBT [38;5;241m=[39m calc_TB(ps[38;5;241m.[39mS_in)
+[1;32m    193[0m [38;5;66;03m# Calculate Ks at input conditions[39;00m
+[0;32m--> 194[0m ps[38;5;241m.[39mKs [38;5;241m=[39m [43mcalc_Ks[49m[43m([49m[43mT[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mT_in[49m[43m,[49m[43m [49m[43mS[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mS_in[49m[43m,[49m[43m [49m[43mP[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mP_in[49m[43m,[49m[43m [49m[43mMg[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mMg[49m[43m,[49m[43m [49m[43mCa[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mCa[49m[43m,[49m[43m [49m[43mTS[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mTS[49m[43m,[49m[43m [49m[43mTF[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mTF[49m[43m,[49m[43m [49m[43mKs[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mKs[49m[43m)[49m
+[1;32m    196[0m [38;5;66;03m# Calculate pH scales at input conditions (does nothing if no pH given)[39;00m
+[1;32m    197[0m ps[38;5;241m.[39mupdate(
+[1;32m    198[0m     calc_pH_scales(
+[1;32m    199[0m         ps[38;5;241m.[39mpHtot,
+[0;32m   (...)[0m
+[1;32m    208[0m     )
+[1;32m    209[0m )
 
-File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/cbsyst.py:7[0m, in [0;36m<module>[0;34m[0m
-[1;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[1;32m      6[0m [38;5;28;01mimport[39;00m [38;5;21;01mkgen[39;00m
-[0;32m----> 7[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcbsyst[39;00m[38;5;21;01m.[39;00m[38;5;21;01mhelpers[39;00m [38;5;28;01mimport[39;00m Bunch, maxL
-[1;32m      8[0m [38;5;66;03m# from cbsyst.MyAMI_V2 import MyAMI_K_calc, MyAMI_K_calc_multi, MyAMI_K_calc_direct[39;00m
-[1;32m      9[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcbsyst[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcarbon[39;00m [38;5;28;01mimport[39;00m calc_C_species, calc_revelle_factor, pCO2_to_fCO2, fCO2_to_CO2
+File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/cbsyst.py:27[0m, in [0;36mcalc_Ks[0;34m(T, S, P, Mg, Ca, TS, TF, Ks, MyAMI_Mode)[0m
+[1;32m     25[0m     Ks [38;5;241m=[39m Bunch(Ks)
+[1;32m     26[0m [38;5;28;01melse[39;00m:
+[0;32m---> 27[0m     Ks [38;5;241m=[39m Bunch([43mkgen[49m[38;5;241;43m.[39;49m[43mcalc_Ks[49m[43m([49m[43mTempC[49m[38;5;241;43m=[39;49m[43mT[49m[43m,[49m[43m [49m[43mSal[49m[38;5;241;43m=[39;49m[43mS[49m[43m,[49m[43m [49m[43mPres[49m[38;5;241;43m=[39;49m[43mP[49m[43m,[49m[43m [49m[43mMg[49m[38;5;241;43m=[39;49m[43mMg[49m[43m,[49m[43m [49m[43mCa[49m[38;5;241;43m=[39;49m[43mCa[49m[43m,[49m[43m [49m[43mMyAMI_mode[49m[38;5;241;43m=[39;49m[43mMyAMI_Mode[49m[43m)[49m)  [38;5;66;03m# calc empirical Ks[39;00m
+[1;32m     29[0m     [38;5;66;03m# pH conversions to total scale.[39;00m
+[1;32m     30[0m     [38;5;66;03m#   - KP1, KP2, KP3 are all on SWS[39;00m
+[1;32m     31[0m     [38;5;66;03m#   - KSi is on SWS[39;00m
+[0;32m   (...)[0m
+[1;32m     37[0m     [38;5;66;03m# for c in conv:[39;00m
+[1;32m     38[0m     [38;5;66;03m#     Ks[c] *= SWStoTOT[39;00m
+[1;32m     40[0m [38;5;28;01mreturn[39;00m Ks
 
-File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/helpers.py:1[0m, in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01muncertainties[39;00m[38;5;21;01m.[39;00m[38;5;21;01munumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01munp[39;00m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
-
-[0;31mModuleNotFoundError[0m: No module named 'uncertainties'
-ModuleNotFoundError: No module named 'uncertainties'
+[0;31mTypeError[0m: calc_Ks() got an unexpected keyword argument 'Mg'
+TypeError: calc_Ks() got an unexpected keyword argument 'Mg'
 

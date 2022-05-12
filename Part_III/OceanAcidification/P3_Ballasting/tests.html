@@ -260,41 +260,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;load_ext&#39;</span><span class="p">,</span> <span class="s1">&#39;autoreload&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;autoreload&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">ballasting</span> <span class="kn">import</span> <span class="n">model</span><span class="p">,</span> <span class="n">plot</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">teaching</span><span class="o">/</span><span class="n">teaching</span><span class="o">/</span><span class="n">Part_III</span><span class="o">/</span><span class="n">OceanAcidification</span><span class="o">/</span><span class="n">P3_Ballasting</span><span class="o">/</span><span class="n">ballasting</span><span class="o">/</span><span class="n">model</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">cbsyst</span> <span class="k">as</span> <span class="nn">cb</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">.helpers</span> <span class="kn">import</span> <span class="n">calc_rho_f</span><span class="p">,</span> <span class="n">calc_rho_p</span><span class="p">,</span> <span class="n">calc_Rdiss</span><span class="p">,</span> <span class="n">calc_Rremin</span><span class="p">,</span> <span class="n">calc_wsink</span><span class="p">,</span> <span class="n">sphere_vol_from_radius</span><span class="p">,</span> <span class="n">sphere_radius_from_vol</span><span class="p">,</span> <span class="n">day_2_seconds</span><span class="p">,</span> <span class="n">calc_O2_sat</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">py3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">cbsyst.cbsyst</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">cbsyst.helpers</span> <span class="kn">import</span> <span class="n">data_out</span><span class="p">,</span> <span class="n">Bunch</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">VERSION</span> <span class="o">=</span> <span class="s1">&#39;0.4.0-alpha&#39;</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">py3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">kgen</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">cbsyst.helpers</span> <span class="kn">import</span> <span class="n">Bunch</span><span class="p">,</span> <span class="n">maxL</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># from cbsyst.MyAMI_V2 import MyAMI_K_calc, MyAMI_K_calc_multi, MyAMI_K_calc_direct</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">cbsyst.carbon</span> <span class="kn">import</span> <span class="n">calc_C_species</span><span class="p">,</span> <span class="n">calc_revelle_factor</span><span class="p">,</span> <span class="n">pCO2_to_fCO2</span><span class="p">,</span> <span class="n">fCO2_to_CO2</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">py3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">/</span><span class="n">helpers</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;uncertainties&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -305,9 +270,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "be06772b823c4138a6733b51f71187e2", "version_major": 2, "version_minor": 0}
-</script><img alt="../../../_images/tests_1_1.png" src="../../../_images/tests_1_1.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mPOC</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">sinking_particles</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Fc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plot</span><span class="o">.</span><span class="n">models</span><span class="p">(</span><span class="n">mPOC</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: sinking_particles() got an unexpected keyword argument &#39;Fc&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">

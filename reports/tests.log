@@ -17,41 +17,17 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-%load_ext autoreload
-%autoreload 2
-from ballasting import model, plot
+mPOC = model.sinking_particles(N=1, Fc=0)
+
+plot.models(mPOC);
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Input [0;32mIn [1][0m, in [0;36m<cell line: 3>[0;34m()[0m
-[1;32m      1[0m get_ipython()[38;5;241m.[39mrun_line_magic([38;5;124m'[39m[38;5;124mload_ext[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mautoreload[39m[38;5;124m'[39m)
-[1;32m      2[0m get_ipython()[38;5;241m.[39mrun_line_magic([38;5;124m'[39m[38;5;124mautoreload[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124m2[39m[38;5;124m'[39m)
-[0;32m----> 3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mballasting[39;00m [38;5;28;01mimport[39;00m model, plot
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [2][0m, in [0;36m<cell line: 1>[0;34m()[0m
+[0;32m----> 1[0m mPOC [38;5;241m=[39m [43mmodel[49m[38;5;241;43m.[39;49m[43msinking_particles[49m[43m([49m[43mN[49m[38;5;241;43m=[39;49m[38;5;241;43m1[39;49m[43m,[49m[43m [49m[43mFc[49m[38;5;241;43m=[39;49m[38;5;241;43m0[39;49m[43m)[49m
+[1;32m      3[0m plot[38;5;241m.[39mmodels(mPOC)
 
-File [0;32m~/work/teaching/teaching/Part_III/OceanAcidification/P3_Ballasting/ballasting/model.py:2[0m, in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[0;32m----> 2[0m [38;5;28;01mimport[39;00m [38;5;21;01mcbsyst[39;00m [38;5;28;01mas[39;00m [38;5;21;01mcb[39;00m
-[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtqdm[39;00m[38;5;21;01m.[39;00m[38;5;21;01mnotebook[39;00m [38;5;28;01mimport[39;00m tqdm
-[1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mhelpers[39;00m [38;5;28;01mimport[39;00m calc_rho_f, calc_rho_p, calc_Rdiss, calc_Rremin, calc_wsink, sphere_vol_from_radius, sphere_radius_from_vol, day_2_seconds, calc_O2_sat
-
-File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/__init__.py:1[0m, in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcbsyst[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcbsyst[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
-[1;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcbsyst[39;00m[38;5;21;01m.[39;00m[38;5;21;01mhelpers[39;00m [38;5;28;01mimport[39;00m data_out, Bunch
-[1;32m      4[0m VERSION [38;5;241m=[39m [38;5;124m'[39m[38;5;124m0.4.0-alpha[39m[38;5;124m'[39m
-
-File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/cbsyst.py:7[0m, in [0;36m<module>[0;34m[0m
-[1;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[1;32m      6[0m [38;5;28;01mimport[39;00m [38;5;21;01mkgen[39;00m
-[0;32m----> 7[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcbsyst[39;00m[38;5;21;01m.[39;00m[38;5;21;01mhelpers[39;00m [38;5;28;01mimport[39;00m Bunch, maxL
-[1;32m      8[0m [38;5;66;03m# from cbsyst.MyAMI_V2 import MyAMI_K_calc, MyAMI_K_calc_multi, MyAMI_K_calc_direct[39;00m
-[1;32m      9[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcbsyst[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcarbon[39;00m [38;5;28;01mimport[39;00m calc_C_species, calc_revelle_factor, pCO2_to_fCO2, fCO2_to_CO2
-
-File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/helpers.py:1[0m, in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01muncertainties[39;00m[38;5;21;01m.[39;00m[38;5;21;01munumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01munp[39;00m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
-
-[0;31mModuleNotFoundError[0m: No module named 'uncertainties'
-ModuleNotFoundError: No module named 'uncertainties'
+[0;31mTypeError[0m: sinking_particles() got an unexpected keyword argument 'Fc'
+TypeError: sinking_particles() got an unexpected keyword argument 'Fc'
 

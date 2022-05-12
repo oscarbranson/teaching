@@ -317,40 +317,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">ballasting</span> <span class="kn">import</span> <span class="n">model</span><span class="p">,</span> <span class="n">plot</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">bottom_depth</span> <span class="o">=</span> <span class="mi">3000</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">work</span><span class="o">/</span><span class="n">teaching</span><span class="o">/</span><span class="n">teaching</span><span class="o">/</span><span class="n">Part_III</span><span class="o">/</span><span class="n">OceanAcidification</span><span class="o">/</span><span class="n">P3_Ballasting</span><span class="o">/</span><span class="n">ballasting</span><span class="o">/</span><span class="n">model</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">cbsyst</span> <span class="k">as</span> <span class="nn">cb</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">.helpers</span> <span class="kn">import</span> <span class="n">calc_rho_f</span><span class="p">,</span> <span class="n">calc_rho_p</span><span class="p">,</span> <span class="n">calc_Rdiss</span><span class="p">,</span> <span class="n">calc_Rremin</span><span class="p">,</span> <span class="n">calc_wsink</span><span class="p">,</span> <span class="n">sphere_vol_from_radius</span><span class="p">,</span> <span class="n">sphere_radius_from_vol</span><span class="p">,</span> <span class="n">day_2_seconds</span><span class="p">,</span> <span class="n">calc_O2_sat</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">py3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">cbsyst.cbsyst</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">cbsyst.helpers</span> <span class="kn">import</span> <span class="n">data_out</span><span class="p">,</span> <span class="n">Bunch</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">VERSION</span> <span class="o">=</span> <span class="s1">&#39;0.4.0-alpha&#39;</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">py3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">kgen</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">cbsyst.helpers</span> <span class="kn">import</span> <span class="n">Bunch</span><span class="p">,</span> <span class="n">maxL</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># from cbsyst.MyAMI_V2 import MyAMI_K_calc, MyAMI_K_calc_multi, MyAMI_K_calc_direct</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">cbsyst.carbon</span> <span class="kn">import</span> <span class="n">calc_C_species</span><span class="p">,</span> <span class="n">calc_revelle_factor</span><span class="p">,</span> <span class="n">pCO2_to_fCO2</span><span class="p">,</span> <span class="n">fCO2_to_CO2</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">py3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">cbsyst</span><span class="o">/</span><span class="n">helpers</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;uncertainties&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="end-members-poc-or-pic-only">
 <h2>End-Members: POC or PIC only<a class="headerlink" href="#end-members-poc-or-pic-only" title="Permalink to this headline">¶</a></h2>
@@ -369,6 +335,54 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PIC only&#39;</span><span class="p">)</span>
 <span class="n">zs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">depth_slice</span><span class="p">(</span><span class="n">bottom_depth</span><span class="p">,</span> <span class="n">mPIC</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">zs</span><span class="p">[</span><span class="s1">&#39;POC&#39;</span><span class="p">],</span> <span class="n">zs</span><span class="p">[</span><span class="s1">&#39;PIC&#39;</span><span class="p">])</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mPOC</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">sinking_particles</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">tmax_days</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">PIC_POC</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">mPIC</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">sinking_particles</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">PIC_POC</span><span class="o">=</span><span class="mf">1e6</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plot</span><span class="o">.</span><span class="n">models</span><span class="p">([</span><span class="n">mPOC</span><span class="p">,</span> <span class="n">mPIC</span><span class="p">],</span> <span class="n">bottom_depth</span><span class="o">=</span><span class="n">bottom_depth</span><span class="p">,</span> <span class="n">model_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POC&#39;</span><span class="p">,</span> <span class="s1">&#39;PIC&#39;</span><span class="p">]);</span>
+
+<span class="nn">File ~/work/teaching/teaching/Part_III/OceanAcidification/P3_Ballasting/ballasting/model.py:79,</span> in <span class="ni">sinking_particles</span><span class="nt">(PIC_POC, r0, k_diss, p_lifetime, f_solubility, tmax_days, tsteps, N, T, S, TA0, pCO20)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span> <span class="n">Fc</span> <span class="o">=</span> <span class="n">vPIC_POC</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">vPIC_POC</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> <span class="c1"># Vmix = 0  # kgSW s-1</span>
+<span class="ne">---&gt; </span><span class="mi">79</span> <span class="n">sw</span> <span class="o">=</span> <span class="n">cb</span><span class="o">.</span><span class="n">Csys</span><span class="p">(</span><span class="n">TA</span><span class="o">=</span><span class="n">TA0</span><span class="p">,</span> <span class="n">pCO2</span><span class="o">=</span><span class="n">pCO20</span><span class="p">,</span> <span class="n">T_in</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">S_in</span><span class="o">=</span><span class="n">S</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="n">init</span> <span class="o">=</span> <span class="p">{</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span>     <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="s1">&#39;R_z&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span>     <span class="s1">&#39;PIC_POC&#39;</span><span class="p">:</span> <span class="n">PIC_POC</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span> <span class="p">}</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="n">Vp</span> <span class="o">=</span> <span class="n">sphere_vol_from_radius</span><span class="p">(</span><span class="n">init</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">])</span>
+
+<span class="nn">File ~/py3/lib/python3.10/site-packages/cbsyst/cbsyst.py:194,</span> in <span class="ni">Csys</span><span class="nt">(pHtot, DIC, CO2, HCO3, CO3, TA, fCO2, pCO2, BT, Ca, Mg, T_in, S_in, P_in, T_out, S_out, P_out, TP, TSi, TS, TF, pHsws, pHfree, pHNBS, Ks, pdict, unit)</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span>     <span class="n">ps</span><span class="o">.</span><span class="n">BT</span> <span class="o">=</span> <span class="n">calc_TB</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">S_in</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span> <span class="c1"># Calculate Ks at input conditions</span>
+<span class="ne">--&gt; </span><span class="mi">194</span> <span class="n">ps</span><span class="o">.</span><span class="n">Ks</span> <span class="o">=</span> <span class="n">calc_Ks</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">ps</span><span class="o">.</span><span class="n">T_in</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="n">ps</span><span class="o">.</span><span class="n">S_in</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="n">ps</span><span class="o">.</span><span class="n">P_in</span><span class="p">,</span> <span class="n">Mg</span><span class="o">=</span><span class="n">ps</span><span class="o">.</span><span class="n">Mg</span><span class="p">,</span> <span class="n">Ca</span><span class="o">=</span><span class="n">ps</span><span class="o">.</span><span class="n">Ca</span><span class="p">,</span> <span class="n">TS</span><span class="o">=</span><span class="n">ps</span><span class="o">.</span><span class="n">TS</span><span class="p">,</span> <span class="n">TF</span><span class="o">=</span><span class="n">ps</span><span class="o">.</span><span class="n">TF</span><span class="p">,</span> <span class="n">Ks</span><span class="o">=</span><span class="n">ps</span><span class="o">.</span><span class="n">Ks</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="c1"># Calculate pH scales at input conditions (does nothing if no pH given)</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="n">ps</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span>     <span class="n">calc_pH_scales</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">199</span>         <span class="n">ps</span><span class="o">.</span><span class="n">pHtot</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span> <span class="p">)</span>
+
+<span class="nn">File ~/py3/lib/python3.10/site-packages/cbsyst/cbsyst.py:27,</span> in <span class="ni">calc_Ks</span><span class="nt">(T, S, P, Mg, Ca, TS, TF, Ks, MyAMI_Mode)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">Ks</span> <span class="o">=</span> <span class="n">Bunch</span><span class="p">(</span><span class="n">Ks</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">27</span>     <span class="n">Ks</span> <span class="o">=</span> <span class="n">Bunch</span><span class="p">(</span><span class="n">kgen</span><span class="o">.</span><span class="n">calc_Ks</span><span class="p">(</span><span class="n">TempC</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">Sal</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">Pres</span><span class="o">=</span><span class="n">P</span><span class="p">,</span> <span class="n">Mg</span><span class="o">=</span><span class="n">Mg</span><span class="p">,</span> <span class="n">Ca</span><span class="o">=</span><span class="n">Ca</span><span class="p">,</span> <span class="n">MyAMI_mode</span><span class="o">=</span><span class="n">MyAMI_Mode</span><span class="p">))</span>  <span class="c1"># calc empirical Ks</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="c1"># pH conversions to total scale.</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="c1">#   - KP1, KP2, KP3 are all on SWS</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="c1">#   - KSi is on SWS</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="c1"># for c in conv:</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="c1">#     Ks[c] *= SWStoTOT</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="k">return</span> <span class="n">Ks</span>
+
+<span class="ne">TypeError</span>: calc_Ks() got an unexpected keyword argument &#39;Mg&#39;
 </pre></div>
 </div>
 </div>
