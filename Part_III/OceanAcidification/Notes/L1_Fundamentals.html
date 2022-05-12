@@ -280,6 +280,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tools-for-calculating-ocean-carbon-chemistry">
+     Tools for calculating Ocean Carbon Chemistry
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#references">
      References
     </a>
@@ -354,6 +359,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#saturation-state">
      Saturation State
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tools-for-calculating-ocean-carbon-chemistry">
+     Tools for calculating Ocean Carbon Chemistry
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -433,23 +443,6 @@ This is the carbon pool that directly interacts with the atmosphere via the exch
 K_0 = \frac{[CO_2]_{aq}}{pCO_2}
 \]</div>
 <p>which depends on the temperature, and to a lesser extent salinity, of the water:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ks</span><span class="o">.</span><span class="n">K0</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">Ks</span><span class="o">.</span><span class="n">K0</span><span class="o">.</span><span class="n">shape</span>
-
-<span class="ne">NameError</span>: name &#39;Ks&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
@@ -471,7 +464,18 @@ K_0 = \frac{[CO_2]_{aq}}{pCO_2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/L1_Fundamentals_5_0.png" src="../../../_images/L1_Fundamentals_5_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 12&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">Ks</span> <span class="o">=</span> <span class="n">sw</span><span class="o">.</span><span class="n">Ks</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">Ks</span><span class="o">.</span><span class="n">K0</span> <span class="o">=</span> <span class="n">Ks</span><span class="o">.</span><span class="n">K0</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">K0</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$K_0$&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature C&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;K0&#39; is not defined
+</pre></div>
+</div>
 </div>
 </div>
 <p>This means that more CO<sub>2</sub> is able to dissolve into cooler, less salty water.</p>
@@ -512,7 +516,7 @@ This can become important when considering ocean-atmosphere interactions, becaus
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/L1_Fundamentals_7_0.png" src="../../../_images/L1_Fundamentals_7_0.png" />
+<img alt="../../../_images/L1_Fundamentals_6_0.png" src="../../../_images/L1_Fundamentals_6_0.png" />
 </div>
 </div>
 <p>The speciation of DIC is described by the <strong>stoichiometric equilibrium constants</strong> K<sub>1</sub> and K<sub>2</sub>:</p>
@@ -671,7 +675,7 @@ This shows us how adding or removing <span class="math notranslate nohighlight">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(2016.6666666666667, 2352, &#39;$CO_2~in$&#39;)
 </pre></div>
 </div>
-<img alt="../../../_images/L1_Fundamentals_10_1.png" src="../../../_images/L1_Fundamentals_10_1.png" />
+<img alt="../../../_images/L1_Fundamentals_9_1.png" src="../../../_images/L1_Fundamentals_9_1.png" />
 </div>
 </div>
 </div>
@@ -740,7 +744,7 @@ The Total Organic Carbon (<strong>TOC</strong>) pool is, rather arbitrarily, spl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/L1_Fundamentals_14_0.png" src="../../../_images/L1_Fundamentals_14_0.png" />
+<img alt="../../../_images/L1_Fundamentals_13_0.png" src="../../../_images/L1_Fundamentals_13_0.png" />
 </div>
 </div>
 </div>
@@ -768,7 +772,7 @@ Ca^{2+} + CO_3^{2-} \leftrightarrow CaCO_3
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/L1_Fundamentals_16_0.png" src="../../../_images/L1_Fundamentals_16_0.png" />
+<img alt="../../../_images/L1_Fundamentals_15_0.png" src="../../../_images/L1_Fundamentals_15_0.png" />
 </div>
 </div>
 <p>Another point noting here is that, just like with the reversible reactions of DIC dissociation, calcfication and dissolution are described using an equilibrium constant, K. However, because we’re dealing with a mineral rather than a dissolved species it’s known as an <em>equilibrium solubility product</em>, and is defined as the product of the constituent ions in seawater when the mineral will neither form nor dissolve:</p>
@@ -832,7 +836,7 @@ Of these, [Ca<sup>2+</sup>] is relatively constant in seawater (10.2 mmol kg<sup
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/L1_Fundamentals_18_0.png" src="../../../_images/L1_Fundamentals_18_0.png" />
+<img alt="../../../_images/L1_Fundamentals_17_0.png" src="../../../_images/L1_Fundamentals_17_0.png" />
 </div>
 </div>
 <p>This means that, for a given [Ca<sup>2+</sup>] and [CO<sub>3</sub><sup>2-</sup>], calcium carbonate minerals dissolve more easily at higher pressures and lower temperatures.</p>
@@ -864,10 +868,20 @@ Of these, [Ca<sup>2+</sup>] is relatively constant in seawater (10.2 mmol kg<sup
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/L1_Fundamentals_20_0.png" src="../../../_images/L1_Fundamentals_20_0.png" />
+<img alt="../../../_images/L1_Fundamentals_19_0.png" src="../../../_images/L1_Fundamentals_19_0.png" />
 </div>
 </div>
 <p>As you can see here, the change in <span class="math notranslate nohighlight">\(\Omega\)</span> with pressure is similar, but the influence of temperature is increased. This has the major implication that the cold surface ocean in the high lattitudes will be affected by ocean acidification first.</p>
+</div>
+<div class="section" id="tools-for-calculating-ocean-carbon-chemistry">
+<h3>Tools for calculating Ocean Carbon Chemistry<a class="headerlink" href="#tools-for-calculating-ocean-carbon-chemistry" title="Permalink to this headline">¶</a></h3>
+<p>A number of these exist for your favourite flavour of numerical tool. The main ones are:</p>
+<ul class="simple">
+<li><p><strong>Excel</strong>: <a class="reference external" href="https://cdiac.ess-dive.lbl.gov/ftp/co2sys/CO2SYS_calc_XLS_v2.1/">CO2SYS</a></p></li>
+<li><p><strong>Matlab</strong>: <a class="reference external" href="https://au.mathworks.com/matlabcentral/fileexchange/78378-co2sysv3-for-matlab">CO2SYS.m</a></p></li>
+<li><p><strong>Python</strong>: <a class="reference external" href="https://github.com/oscarbranson/cbsyst">cbsyst</a> (with a focus on modfied seawater chemistry and B isotopes for palaeo applications), or <a class="reference external" href="https://pyco2sys.readthedocs.io/en/latest/">PyCO2SYS</a> which is a direct port of CO2SYS.m</p></li>
+<li><p><strong>R</strong>: <a class="reference external" href="https://www.rdocumentation.org/packages/seacarb">seacarb</a></p></li>
+</ul>
 </div>
 <div class="section" id="references">
 <h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
