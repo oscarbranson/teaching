@@ -1,4 +1,4 @@
 jupyter-book
 matplotlib
 numpy
-git+https://github.com/oscarbranson/cbsyst@dev#egg=cbsyst
+git+https://github.com/oscarbranson/cbsyst.git@dev
