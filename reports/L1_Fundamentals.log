@@ -17,104 +17,52 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-DIC = np.linspace(1950, 2050)
-TA = np.linspace(2300, 2400)
+import numpy as np
+import matplotlib.pyplot as plt
+import cbsyst as cb
+plt.rcParams['font.size'] = 14
 
-dic, ta = np.meshgrid(DIC, TA)
+sw = cb.Csys(pCO2=np.linspace(250, 450), TA=2300)
 
-sw = cb.Csys(DIC=dic, TA=ta)
+preind = 270
+modern = 415
 
-fig, ax = plt.subplots(1,1,figsize=[6,6])
-c_pH = ax.contour(sw.DIC, sw.TA, sw.pHtot, [8, 8.1, 8.2], colors='C1')
-ax.clabel(c_pH)
-ax.plot([],[],label='pH', color='C1')
+plt.plot(sw.pCO2, sw.pHtot, color='k')
+plt.xlabel('pCO2 (ppm)')
+plt.ylabel('$pH_{Total}$')
+plt.xlim(250, 450)
 
-c_pCO2 = ax.contour(sw.DIC, sw.TA, sw.pCO2, [250, 300, 400, 450], colors='C0')
-ax.clabel(c_pCO2, )
-ax.plot([],[],label='$pCO_2$', color='C0')
+plt.axvline(preind, color='C0', lw=5, alpha=0.5)
+plt.text(preind + 5, 8.18, 'Pre-Industrial', color='C0', ha='left', va='bottom', fontsize=14)
 
-ax.set_xlabel('DIC $\mu mol~kg^{-1}$')
-ax.set_ylabel('TA $\mu mol~kg^{-1}$')
+plt.axvline(modern, color='C1', lw=5, alpha=0.5)
+plt.text(modern - 5, 8.025, 'Modern', color='C1', ha='right', va='top', fontsize=14);
 
-ax.legend(loc='lower left')
-ax.set_aspect(1)
-
-delta = 25
-centre = (2000, 2350)
-ax.scatter(*centre, marker='o', s=300, color='k')
-
-ax.arrow(*centre, -delta, 0, width=1, zorder=-1, color='C0')
-ax.annotate('$CO_2~out$', xy=centre, xytext=(centre[0] - delta / 1.5, centre[1] - 2), ha='center', va='top', zorder=-1, color='C0')
-
-ax.arrow(*centre, delta, 0, width=1, zorder=-1, color='C0')
-ax.annotate('$CO_2~in$', xy=centre, xytext=(centre[0] + delta / 1.5, centre[1] +2), ha='center', va='bottom', zorder=-1, color='C0')
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
-Input [0;32mIn [4][0m, in [0;36m<cell line: 6>[0;34m()[0m
-[1;32m      2[0m TA [38;5;241m=[39m np[38;5;241m.[39mlinspace([38;5;241m2300[39m, [38;5;241m2400[39m)
-[1;32m      4[0m dic, ta [38;5;241m=[39m np[38;5;241m.[39mmeshgrid(DIC, TA)
-[0;32m----> 6[0m sw [38;5;241m=[39m [43mcb[49m[38;5;241;43m.[39;49m[43mCsys[49m[43m([49m[43mDIC[49m[38;5;241;43m=[39;49m[43mdic[49m[43m,[49m[43m [49m[43mTA[49m[38;5;241;43m=[39;49m[43mta[49m[43m)[49m
-[1;32m      8[0m fig, ax [38;5;241m=[39m plt[38;5;241m.[39msubplots([38;5;241m1[39m,[38;5;241m1[39m,figsize[38;5;241m=[39m[[38;5;241m6[39m,[38;5;241m6[39m])
-[1;32m      9[0m c_pH [38;5;241m=[39m ax[38;5;241m.[39mcontour(sw[38;5;241m.[39mDIC, sw[38;5;241m.[39mTA, sw[38;5;241m.[39mpHtot, [[38;5;241m8[39m, [38;5;241m8.1[39m, [38;5;241m8.2[39m], colors[38;5;241m=[39m[38;5;124m'[39m[38;5;124mC1[39m[38;5;124m'[39m)
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<cell line: 3>[0;34m()[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+[0;32m----> 3[0m [38;5;28;01mimport[39;00m [38;5;21;01mcbsyst[39;00m [38;5;28;01mas[39;00m [38;5;21;01mcb[39;00m
+[1;32m      4[0m plt[38;5;241m.[39mrcParams[[38;5;124m'[39m[38;5;124mfont.size[39m[38;5;124m'[39m] [38;5;241m=[39m [38;5;241m14[39m
+[1;32m      6[0m sw [38;5;241m=[39m cb[38;5;241m.[39mCsys(pCO2[38;5;241m=[39mnp[38;5;241m.[39mlinspace([38;5;241m250[39m, [38;5;241m450[39m), TA[38;5;241m=[39m[38;5;241m2300[39m)
 
-File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/cbsyst.py:272[0m, in [0;36mCsys[0;34m(pHtot, DIC, CO2, HCO3, CO3, TA, fCO2, pCO2, BT, Ca, Mg, T_in, S_in, P_in, T_out, S_out, P_out, TP, TSi, TS, TF, pHsws, pHfree, pHNBS, Ks, pdict, unit)[0m
-[1;32m    256[0m ps[38;5;241m.[39mupdate(
-[1;32m    257[0m     calc_pH_scales(
-[1;32m    258[0m         ps[38;5;241m.[39mpHtot,
-[0;32m   (...)[0m
-[1;32m    267[0m     )
-[1;32m    268[0m )
-[1;32m    270[0m [38;5;66;03m# calculate C system at input conditions[39;00m
-[1;32m    271[0m ps[38;5;241m.[39mupdate(
-[0;32m--> 272[0m     [43mcalc_C_species[49m[43m([49m
-[1;32m    273[0m [43m        [49m[43mpHtot[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mpHtot[49m[43m,[49m
-[1;32m    274[0m [43m        [49m[43mDIC[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mDIC[49m[43m,[49m
-[1;32m    275[0m [43m        [49m[43mCO2[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mCO2[49m[43m,[49m
-[1;32m    276[0m [43m        [49m[43mHCO3[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mHCO3[49m[43m,[49m
-[1;32m    277[0m [43m        [49m[43mCO3[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mCO3[49m[43m,[49m
-[1;32m    278[0m [43m        [49m[43mTA[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mTA[49m[43m,[49m
-[1;32m    279[0m [43m        [49m[43mfCO2[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mfCO2[49m[43m,[49m
-[1;32m    280[0m [43m        [49m[43mpCO2[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mpCO2[49m[43m,[49m
-[1;32m    281[0m [43m        [49m[43mT_in[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mT_in[49m[43m,[49m
-[1;32m    282[0m [43m        [49m[43mBT[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mBT[49m[43m,[49m
-[1;32m    283[0m [43m        [49m[43mTP[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mTP[49m[43m,[49m
-[1;32m    284[0m [43m        [49m[43mTSi[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mTSi[49m[43m,[49m
-[1;32m    285[0m [43m        [49m[43mTS[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mTS[49m[43m,[49m
-[1;32m    286[0m [43m        [49m[43mTF[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mTF[49m[43m,[49m
-[1;32m    287[0m [43m        [49m[43mKs[49m[38;5;241;43m=[39;49m[43mps[49m[38;5;241;43m.[39;49m[43mKs[49m[43m,[49m
-[1;32m    288[0m [43m    [49m[43m)[49m
-[1;32m    289[0m )
-[1;32m    290[0m ps[[38;5;124m"[39m[38;5;124mrevelle_factor[39m[38;5;124m"[39m] [38;5;241m=[39m calc_revelle_factor(
-[1;32m    291[0m     TA[38;5;241m=[39mps[38;5;241m.[39mTA,
-[1;32m    292[0m     DIC[38;5;241m=[39mps[38;5;241m.[39mDIC,
-[0;32m   (...)[0m
-[1;32m    298[0m     Ks[38;5;241m=[39mps[38;5;241m.[39mKs,
-[1;32m    299[0m )
-[1;32m    301[0m [38;5;66;03m# calculate pHs on all scales, if not done before.[39;00m
+File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/__init__.py:1[0m, in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcbsyst[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcbsyst[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
+[1;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcbsyst[39;00m[38;5;21;01m.[39;00m[38;5;21;01mhelpers[39;00m [38;5;28;01mimport[39;00m data_out, Bunch
+[1;32m      4[0m VERSION [38;5;241m=[39m [38;5;124m'[39m[38;5;124m0.4.0-alpha[39m[38;5;124m'[39m
 
-File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/carbon_fns.py:618[0m, in [0;36mcalc_C_species[0;34m(pHtot, DIC, CO2, HCO3, CO3, TA, fCO2, pCO2, T_in, BT, TP, TSi, TS, TF, Ks)[0m
-[1;32m    616[0m [38;5;66;03m# 15. TA and DIC[39;00m
-[1;32m    617[0m [38;5;28;01melif[39;00m TA [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m DIC [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
-[0;32m--> 618[0m     pHtot [38;5;241m=[39m [43mTA_DIC[49m[43m([49m[43mTA[49m[38;5;241;43m=[39;49m[43mTA[49m[43m,[49m[43m [49m[43mDIC[49m[38;5;241;43m=[39;49m[43mDIC[49m[43m,[49m[43m [49m[43mBT[49m[38;5;241;43m=[39;49m[43mBT[49m[43m,[49m[43m [49m[43mTP[49m[38;5;241;43m=[39;49m[43mTP[49m[43m,[49m[43m [49m[43mTSi[49m[38;5;241;43m=[39;49m[43mTSi[49m[43m,[49m[43m [49m[43mTS[49m[38;5;241;43m=[39;49m[43mTS[49m[43m,[49m[43m [49m[43mTF[49m[38;5;241;43m=[39;49m[43mTF[49m[43m,[49m[43m [49m[43mKs[49m[38;5;241;43m=[39;49m[43mKs[49m[43m)[49m
-[1;32m    619[0m     H [38;5;241m=[39m ch(pHtot)
-[1;32m    621[0m [38;5;66;03m# The above makes sure that DIC and H are known,[39;00m
-[1;32m    622[0m [38;5;66;03m# this next bit calculates all the missing species[39;00m
-[1;32m    623[0m [38;5;66;03m# from DIC and H.[39;00m
+File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/cbsyst.py:6[0m, in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [38;5;124;03m"""[39;00m
+[1;32m      2[0m [38;5;124;03mFunctions for calculating the carbon and boron chemistry of seawater.[39;00m
+[1;32m      3[0m [38;5;124;03m"""[39;00m
+[1;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[0;32m----> 6[0m [38;5;28;01mimport[39;00m [38;5;21;01mkgen[39;00m
+[1;32m      7[0m [38;5;28;01mfrom[39;00m [38;5;21;01mcbsyst[39;00m[38;5;21;01m.[39;00m[38;5;21;01mhelpers[39;00m [38;5;28;01mimport[39;00m Bunch, maxL
+[1;32m      8[0m [38;5;66;03m# from cbsyst.MyAMI_V2 import MyAMI_K_calc, MyAMI_K_calc_multi, MyAMI_K_calc_direct[39;00m
 
-File [0;32m~/py3/lib/python3.10/site-packages/cbsyst/carbon_fns.py:359[0m, in [0;36mTA_DIC[0;34m(TA, DIC, BT, TP, TSi, TS, TF, Ks)[0m
-[1;32m    351[0m Slope [38;5;241m=[39m ln10 [38;5;241m*[39m (
-[1;32m    352[0m     DIC [38;5;241m*[39m Ks[38;5;241m.[39mK1 [38;5;241m*[39m H [38;5;241m*[39m (H [38;5;241m*[39m[38;5;241m*[39m [38;5;241m2[39m [38;5;241m+[39m Ks[38;5;241m.[39mK1 [38;5;241m*[39m Ks[38;5;241m.[39mK2 [38;5;241m+[39m [38;5;241m4[39m [38;5;241m*[39m H [38;5;241m*[39m Ks[38;5;241m.[39mK2) [38;5;241m/[39m Denom [38;5;241m/[39m Denom
-[1;32m    353[0m     [38;5;241m+[39m BAlk [38;5;241m*[39m H [38;5;241m/[39m (Ks[38;5;241m.[39mKB [38;5;241m+[39m H)
-[1;32m    354[0m     [38;5;241m+[39m OH
-[1;32m    355[0m     [38;5;241m+[39m H
-[1;32m    356[0m )
-[1;32m    357[0m deltapH [38;5;241m=[39m Residual [38;5;241m/[39m Slope
-[0;32m--> 359[0m [38;5;28;01mwhile[39;00m [38;5;28;43many[39;49m[43m([49m[38;5;28;43mabs[39;49m[43m([49m[43mdeltapH[49m[43m)[49m[43m [49m[38;5;241;43m>[39;49m[43m [49m[38;5;241;43m1[39;49m[43m)[49m:
-[1;32m    360[0m     FF [38;5;241m=[39m [38;5;28mabs[39m(deltapH) [38;5;241m>[39m [38;5;241m1[39m
-[1;32m    361[0m     deltapH[FF] [38;5;241m=[39m deltapH[FF] [38;5;241m/[39m [38;5;241m2[39m
-
-[0;31mValueError[0m: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
-ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+[0;31mModuleNotFoundError[0m: No module named 'kgen'
+ModuleNotFoundError: No module named 'kgen'
 
