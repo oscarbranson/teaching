@@ -7,7 +7,7 @@ Traceback (most recent call last):
     return just_run(coro(*args, **kwargs))
   File "/home/runner/py3/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
+  File "/opt/hostedtoolcache/Python/3.10.8/x64/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
   File "/home/runner/py3/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
@@ -24,9 +24,9 @@ plot.models(mPOC);
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mTypeError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [2][0m, in [0;36m<cell line: 1>[0;34m()[0m
+Cell [0;32mIn [2], line 1[0m
 [0;32m----> 1[0m mPOC [38;5;241m=[39m [43mmodel[49m[38;5;241;43m.[39;49m[43msinking_particles[49m[43m([49m[43mN[49m[38;5;241;43m=[39;49m[38;5;241;43m1[39;49m[43m,[49m[43m [49m[43mFc[49m[38;5;241;43m=[39;49m[38;5;241;43m0[39;49m[43m)[49m
-[1;32m      3[0m plot[38;5;241m.[39mmodels(mPOC)
+[1;32m      3[0m plot[38;5;241m.[39mmodels(mPOC);
 
 [0;31mTypeError[0m: sinking_particles() got an unexpected keyword argument 'Fc'
 TypeError: sinking_particles() got an unexpected keyword argument 'Fc'
