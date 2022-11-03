@@ -1,0 +1,10 @@
+jupyter-book
+matplotlib
+numpy
+# bodges to make cbsyst dev work
+uncertainties
+pandas
+scipy
+tqdm
+# kgen
+git+https://github.com/oscarbranson/cbsyst.git@dev

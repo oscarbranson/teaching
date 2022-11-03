@@ -1,0 +1,45 @@
+name: deploy-book
+
+# Only run this when the master branch changes
+on:
+  push:
+    branches:
+    - main
+
+# This job installs dependencies, build the book, and pushes it to `gh-pages`
+jobs:
+  deploy-book:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    # Install dependencies
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: "3.10"
+
+    - name: Install dependencies
+      run: |
+        python -m venv ~/py3
+        source ~/py3/bin/activate
+        git clone https://github.com/PalaeoCarb/Kgen.git
+        cd Kgen
+        git checkout dev
+        cd python
+        pip install -r requirements.txt
+        python setup.py install
+        cd ../../
+        pip install -r requirements.txt
+        ipython kernel install --name "py3" --user
+    # Build the book
+    - name: Build the book
+      run: |
+        source ~/py3/bin/activate
+        jupyter-book build .
+    # Push the book's HTML to github-pages
+    - name: Push to github-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_build/html
