@@ -1,3 +1,8 @@
 # Teaching Materials
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/oscarbranson/teaching/main?labpath=O23_OceanAcidification%2FP3_Ballasting/P3_Ballasting.ipynb)
+This repository contains teaching materials for various courses and workshops. The materials are organized into different directories based on the subject and level of the course.
+
+## Find your Course
+
+ - [Part III Earth Sciences](Part_III)
+ - [QCES](QCES)
