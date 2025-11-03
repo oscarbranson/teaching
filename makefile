@@ -1,4 +1,4 @@
-.PHONY: build 
+.PHONY: html 
 
-build:
+html:
 	/home/oscar/.python/py3/bin/jupyter-book build ./
