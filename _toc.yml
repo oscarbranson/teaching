@@ -14,4 +14,10 @@ parts:
       # - file: Part_III/OceanAcidification/Notes/L3_Feedbacks
         # sections:
       - file: Part_III/OceanAcidification/P3_Ballasting/P3_Ballasting
+- caption: QCES
+  chapters:
+  - file: QCES/EDAA
+    sections:
+    - file: QCES/EDAA/01_timeseries
+    - file: QCES/EDAA/02_statistics
 
